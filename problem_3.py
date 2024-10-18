@@ -2,10 +2,11 @@ import math
 
 def is_prime(num):
     """ returns a boolean which indicates whether a number is prime or not """
-    assert num > 1, "num should be greater than 1"
+    if num in [2,3]:
+         return True 
     if num % 2 == 0 or num % 3 ==0:  
             return False
-        
+    # it is enough to check up untill the square root. 
     for i in range(3,int(math.sqrt(num)) + 1, 2):
                 if num % i == 0:
                     return False
@@ -20,6 +21,8 @@ def primes_smaller_than_num(num):
             L.append(i)
     return L        
 
+print(primes_smaller_than_num(140))
+
 def factors(num):
     """ finds the prime factors of num """
     factors_list =[]
@@ -32,16 +35,18 @@ def factors(num):
                 break 
     return factors_list
 
+print(factors(140))
 num = 600851475143
-print(max(factors(num)))
+# print(max(factors(num)))
 
 """ Best to explain with an example:
-To find the prime factors of 13195:
-list_of_primes_smaller_than_13195 = [2,3,5,7,11,13,17,...]
-13195/2 = 70
+To find the prime factors of 140:
+list_of_primes_smaller_than_140 = [2,3,5,7,11,13,17,...]
+140/2 = 70
 70/2 = 35
 35/5 = 7 (2 and 3 don't divide 35)
 7/7 = 1 (2,3, and 5 don't divide 35)
 So the list that my 'factors' functions returns is [2,2,5,7]
+Similarly, 13195=5x7x13x29
 """
         
