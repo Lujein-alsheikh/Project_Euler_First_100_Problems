@@ -1,5 +1,7 @@
-num = 897
-first_digit = int(str(num)[0])
-second_digit = int(str(num)[1])
+values_dict = {chr(65 + i): i + 1 for i in range(26)}
 
-print(type(first_digit), first_digit)
+def calculate_name_value(name):
+    """calculates the alphabetical value for an input name"""
+    return sum(values_dict.get(char, 0) for char in name)
+
+print(calculate_name_value("Lulu"))
